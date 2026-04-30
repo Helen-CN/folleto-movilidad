@@ -51,13 +51,16 @@
     position: relative; z-index:2;
   }
 
-  .logo-circle {
-    width: 40px; height:40px;
-    border-radius: 50%;
-    background: rgba(255,255,255,.07);
-    border: 1.5px solid var(--naranja);
-    display: flex; align-items:center; justify-content:center;
-    font-size: 18px; flex-shrink:0;
+  .logos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logos img {
+    height: 30px;
+    align-items: center;
+    object-fit: contain;
   }
 
   .hero-top-text p:first-child {
@@ -378,7 +381,10 @@
   <div class="hero-circle c2"></div>
 
   <div class="hero-top">
-    <div class="logo-circle">🎓</div>
+    <div class="logos">
+      <img src="tec.png" alt="TecNM">
+      <img src="movilidad.png" alt="Movilidad">
+    </div>
     <div class="hero-top-text">
       <p>IT Toluca</p>
       <p>Tecnológico Nacional de México</p>
