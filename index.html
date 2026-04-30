@@ -4,950 +4,629 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Movilidad Estudiantil – IT Toluca</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --azul: #0d2f5e;
-    --azul-medio: #1a4d9e;
-    --azul-claro: #2d7dd2;
+    --azul:    #0d2f5e;
+    --azul2:   #1a4d9e;
     --naranja: #e8640a;
-    --naranja-claro: #f5913e;
-    --blanco: #ffffff;
-    --gris: #f2f5fb;
-    --texto: #1a1a2e;
+    --blanco:  #ffffff;
+    --gris:    #f4f6fb;
+    --texto:   #2a2a2a;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+  html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Lato', sans-serif;
     background: var(--gris);
     color: var(--texto);
-    min-height: 100vh;
-    overflow-x: hidden;
+    max-width: 480px;
+    margin: 0 auto;
   }
 
-  /* ===== HERO ===== */
+  /* ── HERO ─────────────────────── */
   .hero {
     background: var(--azul);
-    padding: 0 0 40px;
+    padding: 0 0 50px;
     position: relative;
     overflow: hidden;
   }
 
-  .hero-wave {
+  .hero-circle {
     position: absolute;
-    bottom: -1px; left: 0;
-    width: 100%; height: 50px;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 220px; height: 220px;
     border-radius: 50%;
-    background: rgba(232,100,10,0.12);
     pointer-events: none;
   }
+  .c1 { width:200px;height:200px; top:-60px;right:-60px; background:rgba(232,100,10,.1); }
+  .c2 { width:130px;height:130px; bottom:20px;left:-40px; background:rgba(45,125,210,.1); }
 
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 10px; left: -40px;
-    width: 160px; height: 160px;
-    border-radius: 50%;
-    background: rgba(45,125,210,0.12);
-    pointer-events: none;
-  }
-
-  .header-bar {
+  .hero-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px 0;
-    position: relative;
-    z-index: 2;
+    gap: 10px;
+    padding: 20px 22px 0;
+    position: relative; z-index:2;
   }
 
-  .inst-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .inst-badge .escudo {
-    width: 36px; height: 36px;
+  .logo-circle {
+    width: 40px; height:40px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,.07);
     border: 1.5px solid var(--naranja);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
+    display: flex; align-items:center; justify-content:center;
+    font-size: 18px; flex-shrink:0;
   }
 
-  .inst-badge div p:first-child {
-    font-size: 0.6rem;
-    font-weight: 800;
-    color: var(--naranja-claro);
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  .hero-top-text p:first-child {
+    font-size: 9px; font-weight:700;
+    letter-spacing:2px; text-transform:uppercase;
+    color: var(--naranja);
+  }
+  .hero-top-text p:last-child {
+    font-size: 8px; color:rgba(255,255,255,.45);
+    font-weight:300; letter-spacing:.5px;
   }
 
-  .inst-badge div p:last-child {
-    font-size: 0.55rem;
-    color: rgba(255,255,255,0.55);
-    font-weight: 300;
+  .hero-body {
+    padding: 28px 22px 0;
+    position: relative; z-index:2;
   }
 
-  .hero-content {
-    padding: 28px 22px 16px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  .hero-tag {
+    display: inline-block;
     background: var(--naranja);
     color: white;
-    font-size: 0.6rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-bottom: 12px;
+    font-size: 8px; font-weight:700;
+    letter-spacing:2px; text-transform:uppercase;
+    padding: 4px 12px; border-radius:20px;
+    margin-bottom:14px;
   }
 
   .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.8rem;
-    color: var(--blanco);
-    letter-spacing: 3px;
-    line-height: 0.95;
-    margin-bottom: 12px;
+    font-family:'Bebas Neue', sans-serif;
+    font-size: 52px; letter-spacing:4px;
+    color: white; line-height:.95;
+    margin-bottom:14px;
   }
 
   .hero h1 span {
-    color: var(--naranja-claro);
-    display: block;
+    display:block; font-size:28px;
+    letter-spacing:9px; color:rgba(255,255,255,.45);
   }
 
   .hero-desc {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.7;
-    font-weight: 400;
-    max-width: 340px;
+    font-size: 12px; font-weight:300;
+    color: rgba(255,255,255,.65);
+    line-height:1.8; max-width:320px;
+    border-left:2px solid var(--naranja);
+    padding-left:14px; margin-bottom:24px;
   }
 
-  .areas-count {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 12px;
-    padding: 10px 16px;
-    margin-top: 18px;
+  .hero-chips {
+    display:flex; gap:10px; flex-wrap:wrap;
   }
 
-  .areas-count .big-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.2rem;
-    color: var(--naranja-claro);
-    line-height: 1;
+  .hero-chip {
+    background: rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:10px; padding:10px 14px;
+    display:flex; align-items:center; gap:10px;
+    text-decoration:none;
+    transition: background .2s;
+  }
+  .hero-chip:active { background:rgba(255,255,255,.13); }
+
+  .chip-num {
+    font-family:'Bebas Neue',sans-serif;
+    font-size:26px; color:rgba(255,255,255,.15);
+    line-height:1;
   }
 
-  .areas-count p {
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.75);
-    font-weight: 600;
-    line-height: 1.3;
+  .chip-text p:first-child {
+    font-size:11px; font-weight:700; color:white;
+  }
+  .chip-text p:last-child {
+    font-size:8px; color:rgba(255,255,255,.45);
+    font-weight:300; margin-top:1px;
   }
 
-  /* ===== NAV TABS ===== */
-  .tabs-wrap {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--blanco);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  .wave {
+    position:absolute; bottom:-1px; left:0; right:0;
   }
 
-  .tabs {
-    display: flex;
-    overflow-x: auto;
-    scrollbar-width: none;
-    padding: 0 16px;
-    gap: 4px;
+  /* ── SECCIONES ─────────────────── */
+  section { padding:28px 20px; }
+
+  .section-label {
+    font-size:8px; font-weight:700;
+    letter-spacing:3px; text-transform:uppercase;
+    color:#bbb; margin-bottom:14px;
+    display:block;
   }
 
-  .tabs::-webkit-scrollbar { display: none; }
-
-  .tab-btn {
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 14px 16px;
-    border: none;
-    background: transparent;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #888;
-    cursor: pointer;
-    border-bottom: 3px solid transparent;
-    transition: all 0.2s;
-    white-space: nowrap;
+  /* ── PROGRAMA CARD ─────────────── */
+  .prog-card {
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:22px;
+    box-shadow:0 2px 16px rgba(0,0,0,.07);
   }
 
-  .tab-btn.active {
-    color: var(--azul);
-    border-bottom-color: var(--naranja);
-  }
-
-  /* ===== SECTIONS ===== */
-  .section { display: none; padding: 24px 20px 100px; animation: fadeIn 0.3s ease; }
-  .section.active { display: block; }
-
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-  /* ===== PROGRAM CARD HEADER ===== */
   .prog-header {
-    background: var(--azul);
-    border-radius: 18px;
-    padding: 22px 20px;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
+    padding:22px 20px 18px;
+    position:relative; overflow:hidden;
   }
 
-  .prog-header.naranja { background: linear-gradient(135deg, var(--naranja) 0%, #c4520a 100%); }
+  .prog-header.blue  { background:var(--azul2); }
+  .prog-header.orange{ background:var(--naranja); }
 
   .prog-header::before {
-    content: '';
-    position: absolute;
-    top: -30px; right: -30px;
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.07);
+    content:'';
+    position:absolute; top:-30px;right:-30px;
+    width:110px;height:110px;border-radius:50%;
+    background:rgba(255,255,255,.07);
+    pointer-events:none;
   }
 
-  .prog-header .prog-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    background: rgba(255,255,255,0.15);
-    color: rgba(255,255,255,0.9);
-    font-size: 0.55rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 20px;
-    margin-bottom: 8px;
+  .prog-header .ptag {
+    display:inline-block;
+    font-size:7px;font-weight:700;
+    letter-spacing:2px;text-transform:uppercase;
+    color:rgba(255,255,255,.65);
+    background:rgba(255,255,255,.12);
+    padding:3px 10px;border-radius:20px;
+    margin-bottom:8px;
   }
 
   .prog-header h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.4rem;
-    color: var(--blanco);
-    letter-spacing: 4px;
-    line-height: 1;
-    margin-bottom: 6px;
+    font-family:'Bebas Neue',sans-serif;
+    font-size:36px;letter-spacing:4px;color:white;
+    line-height:1; margin-bottom:4px;
   }
 
-  .prog-header p.sub {
-    font-size: 0.68rem;
-    color: rgba(255,255,255,0.75);
-    font-weight: 400;
-    line-height: 1.5;
-    font-style: italic;
+  .prog-header p {
+    font-size:9px;color:rgba(255,255,255,.65);
+    font-style:italic;font-weight:300;line-height:1.5;
   }
 
-  /* ===== CARDS ===== */
-  .card {
-    background: var(--blanco);
-    border-radius: 16px;
-    padding: 18px;
-    margin-bottom: 14px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  .prog-body { padding:18px 20px; }
+
+  /* ── DESCRIPCIÓN ── */
+  .desc-text {
+    font-size:12px; color:#555; line-height:1.8;
+    font-weight:300; margin-bottom:18px;
   }
 
-  .card-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+  /* ── COMPONENTES ── */
+  .comp-list { display:flex;flex-direction:column;gap:0; }
+
+  .comp-item {
+    display:flex;gap:12px;
+    align-items:flex-start;
+    padding:12px 0;
+    border-bottom:1px solid #eef0f5;
+  }
+  .comp-item:last-child{border-bottom:none;}
+
+  .comp-bar {
+    width:3px; min-height:36px;
+    border-radius:2px;flex-shrink:0;margin-top:2px;
+  }
+  .bar-b1{background:#1a4d9e;}
+  .bar-b2{background:#2d7dd2;}
+  .bar-b3{background:#00b894;}
+
+  .comp-item h4 {
+    font-size:11px;font-weight:700;
+    color:var(--azul);margin-bottom:3px;
+  }
+  .comp-item p {
+    font-size:10.5px;color:#666;
+    line-height:1.65;font-weight:300;
   }
 
-  .card-ico {
-    width: 38px; height: 38px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
-    flex-shrink: 0;
+  /* ── FEATURES (Movilidad Nacional) ── */
+  .feat-list{display:flex;flex-direction:column;gap:8px;}
+
+  .feat-item {
+    display:flex;align-items:flex-start;gap:10px;
+    padding:10px 12px;background:var(--gris);border-radius:10px;
   }
 
-  .ico-blue { background: #e8f0fc; }
-  .ico-orange { background: #fef0e6; }
-  .ico-green { background: #e6faf5; }
-
-  .card-title h3 {
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: var(--azul);
-    line-height: 1.2;
+  .feat-dot {
+    width:7px;height:7px;border-radius:50%;
+    background:var(--naranja);flex-shrink:0;margin-top:4px;
   }
 
-  .card p {
-    font-size: 0.72rem;
-    color: #555;
-    line-height: 1.7;
-    font-weight: 400;
+  .feat-item p{font-size:11px;color:#444;line-height:1.55;}
+  .feat-item p strong{color:var(--azul);font-weight:700;}
+
+  /* ── CONVOCATORIA CHIP ── */
+  .conv {
+    display:flex;align-items:center;gap:12px;
+    border-radius:12px;padding:14px 16px;
+    margin-top:18px;
+  }
+  .conv.blue  {background:var(--azul);}
+  .conv.orange{background:var(--naranja);}
+
+  .conv .cico{font-size:22px;flex-shrink:0;}
+  .conv .clabel{
+    font-size:7px;font-weight:700;
+    letter-spacing:2px;text-transform:uppercase;
+    color:rgba(255,255,255,.65);margin-bottom:2px;
+  }
+  .conv .cval{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:20px;color:white;letter-spacing:2px;
   }
 
-  /* ===== CONVOCATORIA CHIP ===== */
-  .conv-chip {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--azul);
-    border-radius: 14px;
-    padding: 14px 18px;
-    margin-bottom: 14px;
+  /* ── PASOS ── */
+  .pasos-card {
+    background:var(--azul2);
+    border-radius:18px;overflow:hidden;
+    box-shadow:0 2px 16px rgba(0,0,0,.1);
   }
 
-  .conv-chip.naranja { background: var(--naranja); }
-
-  .conv-chip .chip-ico { font-size: 1.5rem; flex-shrink: 0; }
-
-  .conv-chip .chip-label {
-    font-size: 0.55rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 2px;
+  .pasos-head {
+    padding:20px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .pasos-head span{
+    font-size:7px;font-weight:700;
+    letter-spacing:2px;text-transform:uppercase;
+    color:rgba(255,255,255,.45);display:block;margin-bottom:5px;
+  }
+  .pasos-head h2{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:28px;letter-spacing:3px;color:white;
   }
 
-  .conv-chip .chip-val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    color: var(--blanco);
-    letter-spacing: 2px;
+  .paso {
+    display:flex;gap:14px;
+    padding:14px 20px;
+    border-bottom:1px solid rgba(255,255,255,.07);
+    align-items:flex-start;
+  }
+  .paso:last-child{border-bottom:none;}
+
+  .paso-n{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:24px;color:rgba(255,255,255,.12);
+    line-height:1;flex-shrink:0;min-width:26px;
   }
 
-  /* ===== DETALLE LIST ===== */
-  .detail-list { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .paso h4{font-size:11px;font-weight:700;color:white;margin-bottom:3px;}
+  .paso p {font-size:10px;color:rgba(255,255,255,.5);line-height:1.6;font-weight:300;}
 
-  .detail-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 12px;
-    background: var(--gris);
-    border-radius: 10px;
-  }
-
-  .detail-item .d-ico { font-size: 1rem; flex-shrink: 0; }
-
-  .detail-item p {
-    font-size: 0.7rem;
-    color: var(--texto);
-    line-height: 1.5;
-    font-weight: 500;
-  }
-
-  .detail-item p span {
-    display: block;
-    font-size: 0.6rem;
-    color: #888;
-    font-weight: 400;
-    margin-top: 1px;
-  }
-
-  /* ===== STEPS ===== */
-  .step {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    padding: 14px 0;
-    border-bottom: 1px solid #eee;
-  }
-
-  .step:last-child { border-bottom: none; }
-
-  .step-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    color: var(--naranja);
-    line-height: 1;
-    flex-shrink: 0;
-    min-width: 28px;
-  }
-
-  .step h4 {
-    font-size: 0.82rem;
-    font-weight: 800;
-    color: var(--azul);
-    margin-bottom: 4px;
-  }
-
-  .step p {
-    font-size: 0.68rem;
-    color: #666;
-    line-height: 1.6;
-  }
-
-  /* ===== CONTACT ===== */
+  /* ── CONTACTO ── */
   .contact-card {
-    background: var(--azul);
-    border-radius: 18px;
-    padding: 22px 20px;
-    margin-bottom: 14px;
+    background:var(--azul);
+    border-radius:18px;padding:22px 20px;
+    box-shadow:0 2px 16px rgba(0,0,0,.1);
   }
 
-  .contact-card h3 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    color: var(--blanco);
-    letter-spacing: 2px;
-    margin-bottom: 16px;
+  .contact-card h3{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:22px;letter-spacing:2px;color:white;
+    margin-bottom:18px;
   }
 
-  .contact-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+  .c-row{
+    display:flex;align-items:flex-start;gap:12px;
+    padding:11px 0;
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .c-row:last-of-type{border-bottom:none;}
+
+  .c-ico{
+    width:34px;height:34px;border-radius:9px;
+    background:rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;flex-shrink:0;
   }
 
-  .contact-row:last-child { border-bottom: none; }
-
-  .contact-row .c-ico {
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.1);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem;
-    flex-shrink: 0;
+  .c-lbl{
+    font-size:7px;font-weight:700;
+    letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--naranja);margin-bottom:3px;
+  }
+  .c-val{
+    font-size:11px;color:white;
+    font-weight:400;line-height:1.45;
   }
 
-  .contact-row .c-label {
-    font-size: 0.55rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--naranja-claro);
-    margin-bottom: 2px;
+  .btn-mail{
+    display:flex;align-items:center;justify-content:center;
+    gap:8px;width:100%;
+    background:var(--naranja);color:white;
+    border:none;border-radius:12px;padding:14px;
+    font-family:'Lato',sans-serif;
+    font-size:12px;font-weight:700;
+    text-decoration:none;margin-top:16px;
+    letter-spacing:.3px;
   }
 
-  .contact-row .c-val {
-    font-size: 0.72rem;
-    color: var(--blanco);
-    font-weight: 600;
-    line-height: 1.4;
+  /* ── FOOTER ── */
+  footer{
+    background:var(--azul);
+    padding:24px 20px;
+    text-align:center;
   }
-
-  .map-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    background: var(--naranja);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 14px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 800;
-    cursor: pointer;
-    margin-top: 14px;
-    text-decoration: none;
-    letter-spacing: 0.5px;
+  footer p{
+    font-size:9px;color:rgba(255,255,255,.35);
+    line-height:1.8;letter-spacing:.5px;
   }
+  footer p a{color:rgba(255,255,255,.6);text-decoration:none;}
 
-  .web-link-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    background: transparent;
-    color: var(--azul);
-    border: 2px solid var(--azul);
-    border-radius: 12px;
-    padding: 13px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 800;
-    cursor: pointer;
-    margin-top: 10px;
-    text-decoration: none;
-    letter-spacing: 0.5px;
+  /* ── DIVIDER ── */
+  .divider{
+    height:1px;background:#e4e8f0;
+    margin:0 20px;
   }
-
-  /* ===== SECTION TITLE ===== */
-  .sec-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 3px;
-    color: #aaa;
-    margin-bottom: 14px;
-  }
-
-  /* ===== BOTTOM NAV ===== */
-  .bottom-nav {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    background: var(--blanco);
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-    display: flex;
-    padding: 8px 0 env(safe-area-inset-bottom, 8px);
-    z-index: 200;
-  }
-
-  .nav-btn {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3px;
-    padding: 6px 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-  }
-
-  .nav-btn .n-ico { font-size: 1.3rem; }
-  .nav-btn .n-label { font-size: 0.5rem; font-weight: 700; color: #bbb; letter-spacing: 0.5px; text-transform: uppercase; }
-  .nav-btn.active .n-label { color: var(--naranja); }
-  .nav-btn.active .n-ico { filter: drop-shadow(0 0 4px rgba(232,100,10,0.4)); }
-
-  /* ===== HIGHLIGHT BOX ===== */
-  .highlight {
-    background: linear-gradient(135deg, #e8f0fc, #dceeff);
-    border-left: 4px solid var(--azul-claro);
-    border-radius: 12px;
-    padding: 14px 16px;
-    margin-bottom: 14px;
-  }
-
-  .highlight p {
-    font-size: 0.72rem;
-    color: var(--azul);
-    line-height: 1.7;
-    font-weight: 500;
-  }
-
-  .highlight.warm {
-    background: linear-gradient(135deg, #fef0e6, #fde8d4);
-    border-left-color: var(--naranja);
-  }
-
-  .highlight.warm p { color: #7a3000; }
-
-  /* ===== PILL TAGS ===== */
-  .pill-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-
-  .pill {
-    background: var(--azul);
-    color: white;
-    font-size: 0.6rem;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-  }
-
-  .pill.orange { background: var(--naranja); }
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="header-bar">
-    <div class="inst-badge">
-      <div class="escudo">🎓</div>
-      <div>
-        <p>IT Toluca</p>
-        <p>Tecnológico Nacional de México</p>
-      </div>
+  <div class="hero-circle c1"></div>
+  <div class="hero-circle c2"></div>
+
+  <div class="hero-top">
+    <div class="logo-circle">🎓</div>
+    <div class="hero-top-text">
+      <p>IT Toluca</p>
+      <p>Tecnológico Nacional de México</p>
     </div>
   </div>
 
-  <div class="hero-content">
-    <div class="hero-eyebrow">✦ Subdirección Académica</div>
-    <h1>Movilidad<br><span>Estudiantil</span></h1>
-    <p class="hero-desc">Amplía tu horizonte académico. Conoce los programas que el IT Toluca tiene para tu desarrollo profesional.</p>
-    <div class="areas-count">
-      <span class="big-num">2</span>
-      <p>programas<br>disponibles para ti</p>
+  <div class="hero-body">
+    <span class="hero-tag">Subdirección Académica</span>
+    <h1>Movilidad<span>Estudiantil</span></h1>
+    <p class="hero-desc">
+      Conoce los programas que el IT Toluca ofrece para que sus estudiantes amplíen su formación en otras instituciones de México.
+    </p>
+
+    <div class="hero-chips">
+      <a class="hero-chip" href="#delfin">
+        <span class="chip-num">01</span>
+        <div class="chip-text">
+          <p>DELFÍN</p>
+          <p>Convocatoria: Febrero</p>
+        </div>
+      </a>
+      <a class="hero-chip" href="#nacional">
+        <span class="chip-num">02</span>
+        <div class="chip-text">
+          <p>Movilidad Nacional</p>
+          <p>Convocatoria: Mayo y Octubre</p>
+        </div>
+      </a>
     </div>
   </div>
 
-  <svg class="hero-wave" viewBox="0 0 375 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,30 C80,55 180,10 280,35 C320,45 350,38 375,32 L375,50 L0,50 Z" fill="#f2f5fb"/>
+  <svg class="wave" viewBox="0 0 480 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,32 C100,58 220,10 340,36 C390,47 440,38 480,30 L480,52 L0,52 Z" fill="#f4f6fb"/>
   </svg>
 </div>
 
-<!-- TABS -->
-<div class="tabs-wrap">
-  <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('inicio')">🏠 Inicio</button>
-    <button class="tab-btn" onclick="showTab('delfin')">🐬 DELFÍN</button>
-    <button class="tab-btn" onclick="showTab('nacional')">🗺️ Movilidad Nacional</button>
-    <button class="tab-btn" onclick="showTab('pasos')">📋 ¿Cómo participar?</button>
-    <button class="tab-btn" onclick="showTab('contacto')">📞 Contacto</button>
-  </div>
-</div>
+<!-- PROGRAMA 01: DELFÍN -->
+<section id="delfin">
+  <span class="section-label">Programa 01</span>
 
-<!-- ===== SECCIÓN: INICIO ===== -->
-<div class="section active" id="sec-inicio">
-  <p class="sec-title">BIENVENIDO</p>
+  <div class="prog-card">
+    <div class="prog-header blue">
+      <span class="ptag">Programa Interinstitucional</span>
+      <h2>DELFÍN</h2>
+      <p>Para el Fortalecimiento de la Investigación y el Posgrado del Pacífico</p>
+    </div>
 
-  <div class="highlight">
-    <p>La Oficina de Movilidad Estudiantil del IT Toluca te abre las puertas para que curses asignaturas en otras instituciones y crezcas académicamente sin perder tu lugar aquí.</p>
-  </div>
+    <div class="prog-body">
+      <p class="desc-text">
+        El Programa Delfín busca contribuir a la creación de una cultura científico-tecnológica por medio de actividades de divulgación, investigación y posgrado en las Instituciones de Educación Superior del Pacífico.
+      </p>
 
-  <p class="sec-title">NUESTROS PROGRAMAS</p>
+      <span class="section-label">Consiste en</span>
 
-  <div class="card" onclick="showTab('delfin')" style="cursor:pointer; border: 2px solid #e8f0fc;">
-    <div class="card-title">
-      <div class="card-ico ico-blue">🐬</div>
-      <div>
-        <h3>Programa DELFÍN</h3>
+      <div class="comp-list">
+        <div class="comp-item">
+          <div class="comp-bar bar-b1"></div>
+          <div>
+            <h4>Divulgación Científico-Tecnológica</h4>
+            <p>Difusión accesible y continua del conocimiento generado por la investigación científica de la región del Pacífico.</p>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-bar bar-b2"></div>
+          <div>
+            <h4>Movilidad Estudiantil</h4>
+            <p>Acciones que motivan a los estudiantes destacados de licenciatura a fortalecer su desarrollo académico.</p>
+          </div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-bar bar-b3"></div>
+          <div>
+            <h4>Movilidad de Profesores e Investigadores</h4>
+            <p>Desplazamiento del personal académico para divulgación científica y promoción del posgrado e investigación.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="conv blue">
+        <span class="cico">📅</span>
+        <div>
+          <p class="clabel">Apertura de convocatoria</p>
+          <p class="cval">FEBRERO</p>
+        </div>
       </div>
     </div>
-    <p>Programa Interinstitucional para el Fortalecimiento de la Investigación y el Posgrado del Pacífico. Dirigido a estudiantes destacados de licenciatura.</p>
-    <div class="pill-row">
-      <span class="pill">📅 Convocatoria: Febrero</span>
-    </div>
   </div>
+</section>
 
-  <div class="card" onclick="showTab('nacional')" style="cursor:pointer; border: 2px solid #fef0e6;">
-    <div class="card-title">
-      <div class="card-ico ico-orange">🗺️</div>
-      <div>
-        <h3>Movilidad Nacional</h3>
+<div class="divider"></div>
+
+<!-- PROGRAMA 02: MOVILIDAD NACIONAL -->
+<section id="nacional">
+  <span class="section-label">Programa 02</span>
+
+  <div class="prog-card">
+    <div class="prog-header orange">
+      <span class="ptag">Movilidad dentro de México</span>
+      <h2>Movilidad<br>Nacional</h2>
+      <p>Amplía tu formación cursando en otras instituciones de México</p>
+    </div>
+
+    <div class="prog-body">
+      <p class="desc-text">
+        El tránsito que realizan los estudiantes del IT Toluca para ir a cursar asignaturas en otra Institución de Educación Superior, dentro o fuera del TecNM, fortaleciendo su formación integral y desarrollando una visión globalizadora.
+      </p>
+
+      <span class="section-label">Características</span>
+
+      <div class="feat-list">
+        <div class="feat-item">
+          <div class="feat-dot"></div>
+          <p>Hasta <strong>3 semestres</strong> alternados o consecutivos</p>
+        </div>
+        <div class="feat-item">
+          <div class="feat-dot"></div>
+          <p>Sin perder el <strong>estatus legal</strong> en el IT Toluca</p>
+        </div>
+        <div class="feat-item">
+          <div class="feat-dot"></div>
+          <p>Las asignaturas cursadas son <strong>acreditadas</strong> oficialmente en tu expediente</p>
+        </div>
+        <div class="feat-item">
+          <div class="feat-dot"></div>
+          <p>Puedes estudiar dentro o fuera del <strong>Tecnológico Nacional de México</strong></p>
+        </div>
+      </div>
+
+      <div class="conv orange">
+        <span class="cico">📅</span>
+        <div>
+          <p class="clabel">Apertura de convocatoria</p>
+          <p class="cval">MAYO Y OCTUBRE</p>
+        </div>
       </div>
     </div>
-    <p>Cursa asignaturas en otra Institución de Educación Superior dentro o fuera del TecNM, hasta por 3 semestres, sin perder tu estatus en el Tec.</p>
-    <div class="pill-row">
-      <span class="pill orange">📅 Convocatoria: Mayo y Octubre</span>
-    </div>
   </div>
+</section>
 
-  <p class="sec-title" style="margin-top: 20px;">DATOS RÁPIDOS</p>
+<div class="divider"></div>
 
-  <div class="detail-list">
-    <div class="detail-item">
-      <span class="d-ico">📍</span>
-      <p>Edificio de Ingeniería en Logística B-4, planta baja<span>Ubicación de la Oficina</span></p>
+<!-- ¿CÓMO PARTICIPAR? -->
+<section>
+  <span class="section-label">Guía rápida</span>
+
+  <div class="pasos-card">
+    <div class="pasos-head">
+      <span>Paso a paso</span>
+      <h2>¿Cómo participar?</h2>
     </div>
-    <div class="detail-item">
-      <span class="d-ico">👤</span>
-      <p>Mauro Sánchez Sánchez<span>Coordinador de Movilidad Estudiantil</span></p>
-    </div>
-    <div class="detail-item">
-      <span class="d-ico">📞</span>
-      <p>(722) 2087200 Ext. 3010<span>Teléfono de la Oficina</span></p>
-    </div>
-  </div>
-</div>
 
-<!-- ===== SECCIÓN: DELFÍN ===== -->
-<div class="section" id="sec-delfin">
-  <div class="prog-header">
-    <div class="prog-tag">🐬 Programa Interinstitucional</div>
-    <h2>DELFÍN</h2>
-    <p class="sub">Para el Fortalecimiento de la Investigación y el Posgrado del Pacífico</p>
-  </div>
-
-  <div class="conv-chip">
-    <span class="chip-ico">📅</span>
-    <div>
-      <p class="chip-label">Apertura de convocatoria</p>
-      <p class="chip-val">FEBRERO</p>
-    </div>
-  </div>
-
-  <p class="sec-title">¿QUÉ ES?</p>
-
-  <div class="highlight">
-    <p>El Programa Delfín busca contribuir a la creación de una cultura científico-tecnológica por medio de actividades de divulgación para el conocimiento, aprovechamiento y valoración de las tareas de investigación y posgrado que realizan las IES del Pacífico.</p>
-  </div>
-
-  <p class="sec-title">CONSISTE EN</p>
-
-  <div class="card">
-    <div class="card-title">
-      <div class="card-ico ico-blue">🔬</div>
-      <h3>Divulgación Científico-Tecnológica</h3>
-    </div>
-    <p>Llevar a todos los sectores, de manera accesible, sistemática y continua, el conocimiento generado a través de la investigación científica y los adelantos del desarrollo tecnológico de la región del Pacífico.</p>
-  </div>
-
-  <div class="card">
-    <div class="card-title">
-      <div class="card-ico ico-green">🎒</div>
-      <h3>Movilidad Estudiantil</h3>
-    </div>
-    <p>Promover un conjunto de acciones que motiven a los estudiantes destacados de licenciatura de las IES del Pacífico, a mantener el interés por su desarrollo académico.</p>
-  </div>
-
-  <div class="card">
-    <div class="card-title">
-      <div class="card-ico ico-orange">👩‍🏫</div>
-      <h3>Movilidad de Profesores e Investigadores</h3>
-    </div>
-    <p>Propiciar el desplazamiento del personal académico de las IES del Pacífico para el desarrollo de actividades de divulgación científica y tecnológica y de la promoción del posgrado e investigación.</p>
-  </div>
-
-  <div class="detail-list">
-    <div class="detail-item">
-      <span class="d-ico">🏢</span>
-      <p>Edificio de Logística, planta baja<span>Dónde acudir para informes</span></p>
-    </div>
-  </div>
-</div>
-
-<!-- ===== SECCIÓN: MOVILIDAD NACIONAL ===== -->
-<div class="section" id="sec-nacional">
-  <div class="prog-header naranja">
-    <div class="prog-tag">🗺️ Programa de Movilidad</div>
-    <h2>Movilidad<br>Nacional</h2>
-    <p class="sub">Amplía tu formación cursando en otras instituciones de México</p>
-  </div>
-
-  <div class="conv-chip naranja">
-    <span class="chip-ico">📅</span>
-    <div>
-      <p class="chip-label">Apertura de convocatoria</p>
-      <p class="chip-val">MAYO Y OCTUBRE</p>
-    </div>
-  </div>
-
-  <p class="sec-title">¿QUÉ ES?</p>
-
-  <div class="highlight warm">
-    <p>El IT Toluca invita a los alumnos a realizar movilidad nacional: el tránsito o movimiento que realizan los estudiantes del Instituto Tecnológico para ir a cursar asignaturas a otra Institución de Educación Superior dentro o fuera del TecNM.</p>
-  </div>
-
-  <p class="sec-title">OBJETIVO</p>
-
-  <div class="card">
-    <div class="card-title">
-      <div class="card-ico ico-orange">🎯</div>
-      <h3>Formación integral</h3>
-    </div>
-    <p>Fortalecer la formación integral del estudiante, aprovechando la infraestructura y recursos de las Instituciones de Educación Superior receptoras para desarrollar una visión globalizadora. Tiene como finalidad acreditar las asignaturas cursadas en movilidad.</p>
-  </div>
-
-  <p class="sec-title">CARACTERÍSTICAS</p>
-
-  <div class="detail-list">
-    <div class="detail-item">
-      <span class="d-ico">⏱️</span>
-      <p>Hasta <strong>3 semestres</strong> alternados o consecutivos<span>Duración máxima del programa</span></p>
-    </div>
-    <div class="detail-item">
-      <span class="d-ico">✅</span>
-      <p>Sin perder tu <strong>estatus legal</strong> en el IT Toluca<span>Tu lugar está asegurado</span></p>
-    </div>
-    <div class="detail-item">
-      <span class="d-ico">📚</span>
-      <p>Las asignaturas cursadas son <strong>acreditadas</strong><span>Se reconocen en tu expediente oficial</span></p>
-    </div>
-    <div class="detail-item">
-      <span class="d-ico">🔄</span>
-      <p>Compromiso de <strong>regresar</strong> al Tecnológico<span>Al concluir tu estancia de movilidad</span></p>
-    </div>
-    <div class="detail-item">
-      <span class="d-ico">🏛️</span>
-      <p>Dentro o fuera del <strong>TecNM</strong><span>Puedes ir a otra institución de educación superior</span></p>
-    </div>
-  </div>
-</div>
-
-<!-- ===== SECCIÓN: PASOS ===== -->
-<div class="section" id="sec-pasos">
-  <p class="sec-title">GUÍA PARA PARTICIPAR</p>
-
-  <div class="highlight">
-    <p>Sigue estos pasos para aprovechar los programas de movilidad estudiantil del IT Toluca.</p>
-  </div>
-
-  <div class="card">
-    <div class="step">
-      <span class="step-num">01</span>
+    <div class="paso">
+      <span class="paso-n">01</span>
       <div>
         <h4>Visita la Oficina de Movilidad</h4>
-        <p>Acude al Edificio de Ingeniería en Logística B-4, planta baja. El coordinador Mauro Sánchez Sánchez te orientará sobre los programas disponibles y sus beneficios.</p>
+        <p>Edificio de Ingeniería en Logística B-4, planta baja. El coordinador te orienta personalmente.</p>
       </div>
     </div>
 
-    <div class="step">
-      <span class="step-num">02</span>
+    <div class="paso">
+      <span class="paso-n">02</span>
       <div>
         <h4>Elige tu programa</h4>
-        <p><strong>DELFÍN</strong> — si te interesa la investigación, convocatoria en <em>Febrero</em>.<br><strong>Movilidad Nacional</strong> — si quieres cursar en otra institución, convocatoria en <em>Mayo y Octubre</em>.</p>
+        <p>DELFÍN si te interesa la investigación, o Movilidad Nacional si quieres cursar en otra institución.</p>
       </div>
     </div>
 
-    <div class="step">
-      <span class="step-num">03</span>
+    <div class="paso">
+      <span class="paso-n">03</span>
       <div>
         <h4>Revisa los requisitos</h4>
-        <p>Cada programa tiene criterios de selección específicos. Consulta con la oficina los requisitos académicos y de documentación necesarios.</p>
+        <p>Consulta con la oficina la documentación y criterios de selección necesarios para aplicar.</p>
       </div>
     </div>
 
-    <div class="step">
-      <span class="step-num">04</span>
+    <div class="paso">
+      <span class="paso-n">04</span>
       <div>
         <h4>Entrega tu solicitud</h4>
-        <p>Reúne la documentación completa y entrega tu solicitud dentro del periodo de convocatoria. ¡No dejes pasar la fecha!</p>
+        <p>Reúne tu documentación y entrégala dentro del periodo de convocatoria correspondiente.</p>
       </div>
     </div>
 
-    <div class="step">
-      <span class="step-num">05</span>
+    <div class="paso">
+      <span class="paso-n">05</span>
       <div>
-        <h4>¡Inicia tu aventura académica!</h4>
-        <p>Una vez seleccionado, la oficina de movilidad te guiará durante todo el proceso de tu estancia académica. Tu crecimiento empieza aquí.</p>
+        <h4>¡Inicia tu movilidad!</h4>
+        <p>La oficina te acompaña durante todo el proceso de tu estancia académica.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <p class="sec-title" style="margin-top: 6px;">FECHAS CLAVE</p>
+<div class="divider"></div>
 
-  <div class="conv-chip">
-    <span class="chip-ico">🐬</span>
-    <div>
-      <p class="chip-label">DELFÍN – Convocatoria</p>
-      <p class="chip-val">FEBRERO</p>
-    </div>
-  </div>
-
-  <div class="conv-chip naranja">
-    <span class="chip-ico">🗺️</span>
-    <div>
-      <p class="chip-label">Movilidad Nacional – Convocatoria</p>
-      <p class="chip-val">MAYO Y OCTUBRE</p>
-    </div>
-  </div>
-</div>
-
-<!-- ===== SECCIÓN: CONTACTO ===== -->
-<div class="section" id="sec-contacto">
-  <p class="sec-title">INFORMACIÓN DE CONTACTO</p>
+<!-- CONTACTO -->
+<section>
+  <span class="section-label">Contáctanos</span>
 
   <div class="contact-card">
     <h3>📋 Oficina de Movilidad</h3>
 
-    <div class="contact-row">
+    <div class="c-row">
       <div class="c-ico">👤</div>
       <div>
-        <p class="c-label">Coordinador</p>
+        <p class="c-lbl">Coordinador</p>
         <p class="c-val">Mauro Sánchez Sánchez</p>
       </div>
     </div>
 
-    <div class="contact-row">
+    <div class="c-row">
       <div class="c-ico">📧</div>
       <div>
-        <p class="c-label">Correo Electrónico</p>
+        <p class="c-lbl">Correo electrónico</p>
         <p class="c-val">subacad.movilidad@toluca.tecnm.mx</p>
       </div>
     </div>
 
-    <div class="contact-row">
+    <div class="c-row">
       <div class="c-ico">📞</div>
       <div>
-        <p class="c-label">Teléfono</p>
+        <p class="c-lbl">Teléfono</p>
         <p class="c-val">(722) 2087200 Ext. 3010</p>
       </div>
     </div>
 
-    <div class="contact-row">
+    <div class="c-row">
       <div class="c-ico">📍</div>
       <div>
-        <p class="c-label">Ubicación</p>
+        <p class="c-lbl">Ubicación</p>
         <p class="c-val">Edificio de Ingeniería en Logística B-4, planta baja</p>
       </div>
     </div>
+
+    <a class="btn-mail" href="mailto:subacad.movilidad@toluca.tecnm.mx">
+      📧 &nbsp;Enviar correo al coordinador
+    </a>
   </div>
+</section>
 
-  <a class="map-btn" href="https://tolucatecnm.mx/categoria/28/movilidad-estudiantil" target="_blank">
-    🌐 Ver página oficial del programa
-  </a>
-
-  <a class="web-link-btn" href="mailto:subacad.movilidad@toluca.tecnm.mx">
-    📧 Enviar correo al coordinador
-  </a>
-
-  <div class="highlight" style="margin-top: 16px;">
-    <p>💡 <strong>¿Tienes dudas?</strong> No esperes — visita directamente la oficina de movilidad en el Edificio de Logística, planta baja. El equipo está ahí para orientarte en todo el proceso.</p>
-  </div>
-</div>
-
-<!-- BOTTOM NAV -->
-<div class="bottom-nav">
-  <button class="nav-btn active" id="nav-inicio" onclick="showTab('inicio')">
-    <span class="n-ico">🏠</span>
-    <span class="n-label">Inicio</span>
-  </button>
-  <button class="nav-btn" id="nav-delfin" onclick="showTab('delfin')">
-    <span class="n-ico">🐬</span>
-    <span class="n-label">DELFÍN</span>
-  </button>
-  <button class="nav-btn" id="nav-nacional" onclick="showTab('nacional')">
-    <span class="n-ico">🗺️</span>
-    <span class="n-label">Nacional</span>
-  </button>
-  <button class="nav-btn" id="nav-pasos" onclick="showTab('pasos')">
-    <span class="n-ico">📋</span>
-    <span class="n-label">Pasos</span>
-  </button>
-  <button class="nav-btn" id="nav-contacto" onclick="showTab('contacto')">
-    <span class="n-ico">📞</span>
-    <span class="n-label">Contacto</span>
-  </button>
-</div>
-
-<script>
-  function showTab(name) {
-    // Hide all sections
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-
-    // Show selected
-    document.getElementById('sec-' + name).classList.add('active');
-
-    // Activate tab button
-    const tabs = document.querySelectorAll('.tab-btn');
-    const map = ['inicio','delfin','nacional','pasos','contacto'];
-    const idx = map.indexOf(name);
-    if (tabs[idx]) tabs[idx].classList.add('active');
-
-    // Activate bottom nav
-    const navBtn = document.getElementById('nav-' + name);
-    if (navBtn) navBtn.classList.add('active');
-
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
+<!-- FOOTER -->
+<footer>
+  <p>
+    Instituto Tecnológico de Toluca<br>
+    Tecnológico Nacional de México<br>
+    <a href="https://tolucatecnm.mx/categoria/28/movilidad-estudiantil">tolucatecnm.mx · movilidad-estudiantil</a>
+  </p>
+</footer>
 
 </body>
 </html>
